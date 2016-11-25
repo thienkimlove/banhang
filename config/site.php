@@ -2,20 +2,13 @@
 
 return [
     'content' => [
-        'contents' => [
-            'name' => 'Guide',
+        'categories' => [
+            'name' => 'Chuyên mục',
             'modules' => [
-                'hot_guide' => 'Hot Guide'
+                'show_on_index' => 'Hiện ở Trang chủ'
             ]
         ],
-    ],
-    'users' => [
-        'manhquan.do@ved.com.vn' => 'admin',
-        'test@example.com' => 'editor'
-    ],
-    'permission' => [
-        'admin' => 'all',
-        'editor' => 'positions'
+        //add more content here...
     ],
     'item_per_page' => 10
 ];

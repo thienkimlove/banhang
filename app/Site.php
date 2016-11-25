@@ -13,4 +13,14 @@ class Site
 
         return ($modules->count() > 0)? $modules->first() : null;
     }
+
+    public static function getCategories()
+    {
+        return array(0 => 'Chọn chuyên mục cha') + Category::pluck('title', 'id')->all();
+    }
+
+    public static function getStatus()
+    {
+        return array(1 => 'Active', 0 => 'Inactive');
+    }
 }

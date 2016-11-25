@@ -25,6 +25,14 @@ class AdminAuthenticate
             }
         }
 
+        //permission check.
+
+       $action = last(explode('\\', request()->route()->getActionName()));
+       if (!in_array($action, config('permissions.'.session('admin_login')->permission))) {
+           flash('Not have permission!', 'error');
+           return redirect('admin/notice');
+       }
+
         return $next($request);
     }
 }

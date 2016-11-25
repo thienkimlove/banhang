@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Exception;
+use Illuminate\Http\Request;
 use Image;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -35,17 +37,15 @@ class AdminController extends Controller
     }
 
 
-    /**
-     * Handle callback from G+.
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function handleGoogleCallback()
     {
         try {
             $user = Socialite::driver('google')->user();
 
-            if (isset(config('site.users')[$user->email])) {
-                session()->put('admin_login', $user->email);
+            $user = User::where('email', $user->email)->get();
+
+            if ($user->count() > 0) {
+                session()->put('admin_login', $user->first());
                 return redirect('admin');
             } else {
                 flash('User with email='.$user->email.' not existed in database.', 'error');
@@ -58,10 +58,6 @@ class AdminController extends Controller
 
     }
 
-    /**
-     * Logout g+.
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function logout()
     {
         session()->forget('admin_login');
@@ -69,9 +65,10 @@ class AdminController extends Controller
         return redirect('admin/notice');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-       return view('admin.index');
+       $user = session()->get('admin_login');
+       return view('admin.index', compact('user'));
     }
 
     public function saveImage($file, $old = null)

@@ -1,1 +1,0 @@
-function clickShowPopupVideo(c,o){$(c).click(function(){var c=$(this).data("src");$(o).fadeIn(),$(o).find("iframe").attr("src",c),$(".close-popup").click(function(){$(o).fadeOut()})})}$(document).ready(function(){clickShowPopupVideo(".thumb-video a",".popup-video")});
