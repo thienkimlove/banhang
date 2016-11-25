@@ -18,5 +18,5 @@ php artisan add:admin --email=manhquan.do@ved.com.vn --role=admin
 # Change chmod files and directories
 chmod -R 777 public/files
 chmod -R 777 storage
-chmod -R bootstrap
+chmod -R 777 bootstrap
 
