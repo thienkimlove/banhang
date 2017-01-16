@@ -19,8 +19,19 @@ class Site
         return array(0 => 'Chọn chuyên mục cha') + Category::pluck('title', 'id')->all();
     }
 
+    public static function getNoSubCategories()
+    {
+        return array(0 => 'Chọn chuyên mục') + Category::doesntHave('subCategories')->pluck('title', 'id')->all();
+    }
+
+
     public static function getStatus()
     {
         return array(1 => 'Active', 0 => 'Inactive');
+    }
+
+    public static function getBannerPositions()
+    {
+        return array(0 => 'Chọn vị trí') + Position::pluck('name', 'id')->all();
     }
 }
