@@ -74,6 +74,13 @@ return [
         'QuestionsController@update',
         'QuestionsController@store',
 
+        'ContactsController@index',
+        'ContactsController@create',
+        'ContactsController@edit',
+        'ContactsController@destroy',
+        'ContactsController@update',
+        'ContactsController@store',
+
 
     ],
 
@@ -149,5 +156,12 @@ return [
         'QuestionsController@destroy',
         'QuestionsController@update',
         'QuestionsController@store',
+
+        'ContactsController@index',
+        'ContactsController@create',
+        'ContactsController@edit',
+        'ContactsController@destroy',
+        'ContactsController@update',
+        'ContactsController@store',
     ]
 ];

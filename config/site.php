@@ -29,6 +29,13 @@ return [
             ]
         ],
 
+        'contacts' => [
+            'name' => 'Liên hệ',
+            'modules' => [
+
+            ]
+        ],
+
         'products' => [
             'name' => 'Sản phẩm',
             'modules' => [
@@ -56,6 +63,7 @@ return [
 
             ]
         ],
+
         //add more content here...
     ],
     'item_per_page' => 10
